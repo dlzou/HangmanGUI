@@ -1,7 +1,6 @@
 package hangmangui;
 
 import java.awt.*;
-import java.awt.event.*;
 
 import javax.swing.*;
 import javax.swing.text.*;
@@ -69,12 +68,10 @@ public class MainWindow extends JFrame {
         inputPanel.setBackground(Color.WHITE);
         inputPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         
-        promptLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
         inputPanel.add(promptLabel);
         
         inputField.setDocument(new JTextFieldLimit(1));
         inputField.setHorizontalAlignment(JTextField.CENTER);
-        inputField.setFont(new Font("SansSerif", Font.PLAIN, 18));
         inputPanel.add(inputField);
         
         inputPanel.add(inputButton);
