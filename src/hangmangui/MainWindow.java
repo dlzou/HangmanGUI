@@ -9,7 +9,7 @@ import javax.swing.text.*;
 public class MainWindow extends JFrame {
     
     private JPanel outputPanel;
-    private JLabel graphic;
+    private JLabel image;
     private JLabel currentWord;
     private JLabel usedLetters;
     private JLabel messageLabel;
@@ -25,7 +25,7 @@ public class MainWindow extends JFrame {
     
     public void initComponents() {
         outputPanel = new JPanel();
-        graphic = new JLabel(" ");
+        image = new JLabel(" ");
         currentWord = new JLabel(" ");
         usedLetters = new JLabel(" ");
         messageLabel = new JLabel(" ");
@@ -39,16 +39,18 @@ public class MainWindow extends JFrame {
         Controller controller = new Controller(model, this);
         inputButton.addActionListener(controller);
         
+        addWindowListener(controller);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setLayout(new GridBagLayout());
         setTitle("Hangman");
         
         //outputPanel
         outputPanel.setLayout(new BoxLayout(outputPanel, BoxLayout.Y_AXIS));
+        outputPanel.setBackground(Color.WHITE);
         outputPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         
-        graphic.setAlignmentX(Component.CENTER_ALIGNMENT);
-        outputPanel.add(graphic);
+        image.setAlignmentX(Component.CENTER_ALIGNMENT);
+        outputPanel.add(image);
         
         currentWord.setAlignmentX(Component.CENTER_ALIGNMENT);
         currentWord.setFont(new Font("SansSerif", Font.PLAIN, 36));
@@ -64,6 +66,7 @@ public class MainWindow extends JFrame {
         
         //inputPanel
         inputPanel.setLayout(new FlowLayout());
+        inputPanel.setBackground(Color.WHITE);
         inputPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
         
         promptLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
@@ -95,9 +98,9 @@ public class MainWindow extends JFrame {
         setMinimumSize(getSize());
     } //initComponent
     
-    public JLabel getGraphic() {
-        return graphic;
-    } //getGraphic
+    public void setImage(ImageIcon icon) {
+        image.setIcon(icon);
+    } //setGraphic
     
     public JLabel getCurrentWord() {
         return currentWord;
@@ -125,7 +128,7 @@ public class MainWindow extends JFrame {
 
 class JTextFieldLimit extends PlainDocument {
     private int limit;
-
+    
     JTextFieldLimit(int limit) {
         super();
         this.limit = limit;

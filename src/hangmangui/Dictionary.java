@@ -31,7 +31,7 @@ public class Dictionary {
     
     public static void readFile() {
         try {
-            BufferedReader inputFile = new BufferedReader(new FileReader("wordsHangman.txt"));
+            BufferedReader inputFile = new BufferedReader(new FileReader("dictionary.txt"));
             String buffer = null;
             while ((buffer = inputFile.readLine()) != null) {
                 buffer = buffer.toLowerCase();
