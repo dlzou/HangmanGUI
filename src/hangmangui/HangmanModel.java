@@ -1,6 +1,7 @@
 package hangmangui;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -62,9 +63,11 @@ public class HangmanModel {
     public void loadImages() {
         images = new HashMap<>();
         File folder = new File("images/");
+        File[] rawImages = folder.listFiles();
+        Arrays.sort(rawImages);
         
         int index = 0;
-        for (File image : folder.listFiles()) {
+        for (File image : rawImages) {
             if (image.getPath().endsWith(".png")) {
                 images.put(index, new ImageIcon(image.getPath()));
                 index++;

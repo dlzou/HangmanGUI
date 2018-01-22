@@ -62,6 +62,7 @@ public class MainWindow extends JFrame {
         messageLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
         messageLabel.setFont(new Font("SansSerif", Font.PLAIN, 18));
         outputPanel.add(messageLabel);
+        outputPanel.add(Box.createRigidArea(new Dimension(0, 10)));
         
         //inputPanel
         inputPanel.setLayout(new FlowLayout());
