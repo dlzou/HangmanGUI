@@ -21,20 +21,13 @@ public class Controller implements ActionListener, WindowListener {
                 window, "Would you like to start a new game?", 
                 "New Game", JOptionPane.YES_NO_OPTION);
         if (option == JOptionPane.YES_OPTION) {
-            model.init(selectLevel());
+            model.init();
             updateWindow();
         } //if
         else {
             System.exit(0);
         } //else
     } //initGame
-    
-    public int selectLevel() {
-        Object[] levels = {"Easy", "Medium", "Hard"};
-        return JOptionPane.showOptionDialog(window, "Select a level:", 
-                "Level", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
-                null, levels, levels[0]);
-    } //selectDifficulty
     
     public void updateWindow() {
         window.setImage(model.getCurrentImage());

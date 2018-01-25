@@ -18,18 +18,12 @@ public class HangmanModel {
     private HashMap<Integer, ImageIcon> images;
     
     public HangmanModel() {
-        Dictionary.readFile();
+        loadDictionary();
         loadImages();
     } //HangmanModel
     
-    public void init(int level) {
-        if (level == 0)
-            word = Dictionary.getEasy();
-        else if (level == 1)
-            word = Dictionary.getMedium();
-        else
-            word = Dictionary.getHard();
-        
+    public void init() {
+        word = newWord();
         guessesLeft = 6;
         
         currentWord = new ArrayList<>();
@@ -50,7 +44,8 @@ public class HangmanModel {
                 dictionary.add(buffer);
             } //while
             inputFile.close();
-        } catch (IOException e) {
+        } //try
+        catch (IOException e) {
             e.printStackTrace();
         } //catch
     } //loadDictionary
